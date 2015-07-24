@@ -14,8 +14,8 @@ $email = new EmailBody();
 echo $email->loadBody();
 echo '<br />';
 
-$emailChristmas = new ChristmasEmailBodyDecorator($email);
-echo $emailChristmas->loadBody();
+$email = new ChristmasEmailBodyDecorator($email);
+echo $email->loadBody();
 echo '<br />';
-$emailNewYear = new NewYearEmailBodyDecorator($emailChristmas);
-echo $emailNewYear->loadBody();
+$email = new NewYearEmailBodyDecorator($email);
+echo $email->loadBody();
