@@ -1,5 +1,7 @@
 <?php
-
+$funkcja = function($param) {
+  return $param;  
+};
 function autoload($className)
 {
     $className = ltrim($className, '\\');
@@ -16,6 +18,7 @@ function autoload($className)
 }
 spl_autoload_register('autoload');
 
+echo $funkcja('adam ma kota');
 
 $factory = new \Square\ConcreteCreator();
 $triangle = $factory->factoryMethod(new \Square\Triangle());

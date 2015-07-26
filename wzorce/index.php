@@ -1,34 +1,12 @@
 <?php
-class Dog{
-    protected $name;
-    public function __construct($name){
-        $this->name = $name;
-    }
-
-    public function roar(){
-        echo 'chał chał';
-    }
-
-    public function getName(){
-        return $this->name;
-    }
-
-    public function setName($name){
-        $this->name = $name;
-    }
+class SimpleClass {
+    private $privateData = 2;
 }
-
-class Basset extends Dog{
-    public function hound(){
-        //metoda tropienia :P
-    }
-
-    public function addPrefixToName($prefix){
-        $this->name = $prefix.' '.$prefix;
-    }
-}
-
-$reksio = new Basset('Reksio');
-//$reksio->roar();//metoda zdefiniowana w klasie Dog widoczna w podklasie
-$reksio->addPrefixToName('Jamnik');
-echo $reksio->getName();//metoda z nadklasy. Wyświetla 'Reksio' , a nie 'Jamnik Reksio'
+ 
+$simpleClosure = function() {
+    return $this->privateData;
+};
+ 
+$resultClosure = Closure::bind($simpleClosure, new SimpleClass(), 'SimpleClass');
+ 
+echo $resultClosure();
